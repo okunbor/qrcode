@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Generate a QR code image to point to a website URL"
+    />
+    <meta
+      name="keywords"
+      content="qr code, qr codes, qrcodes, create qr code, qr code generator, create qrcodes, make a qr code, online qr code"
+    />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <script
+      src="https://unpkg.com/html5-qrcode"
+      type="text/javascript"
+    ></script>
+
+    <style></style>
+    <title>QR Code Scanner For Product</title>
+  </head>
+  <body>
+    <header class="p-4 mb-10 bg-red-500">
+      <div class="max-w-5xl m-auto">
+        <div class="text-xl font-bold text-white">
+          Depot QRCode Confirmation
+        </div>
+      </div>
+    </header>
+    <img src="img/spinner.svg" alt="" />
+    <main>
+      <div
+        class="flex flex-col-reverse align-center justify-center m-auto md:max-w-4xl p-10 md:flex-row"
+      >
+        <div class="w-full md:w-2/3 mr-24">
+          <h1 class="text-3xl font-bold mb-5 md:text-4xl">
+            Depot QR Code Scanner
+          </h1>
+          <p class="mb-4">
+            Scan The QR Code and Notified if All Goods are complete by clicking
+            on th received button.
+          </p>
+
+          <div id="reader" width="600px"></div>
+          <div id="result" width="600px"></div>
+
+          <h1>Camera Access Example</h1>
+          <video id="videoElement" autoplay ></video>
+
+          <form id="generate-form" class="mt-4">
+            <input
+              id="btn"
+              type="button"
+              class="w-full bg-gray-300 border-2 border-gray-200 rounded p-3 text-grey-dark mr-2 focus:outline-none mb-5"
+              value="Scan QRCode"
+            />
+
+            <button
+              class="bg-gray-600 rounded w-full text-white py-3 px-4 mt-5 hover:bg-black"
+              type="submit"
+            >
+              Recieved QR Code
+            </button>
+          </form>
+        </div>
+        <div class="w-full md:w-1/3 self-center">
+          <img
+            class="w-1/2 m-auto mb-10 md:w-full"
+            src="img/qr-code.svg"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div
+        id="generated"
+        class="max-w-5xl m-auto flex flex-col text-center align-center justify-center mt-20"
+      ></div>
+    </main>
+
+    <!-- <script>
+      let btn = document.getElementById("btn");
+
+      function QrCodeScanner() {
+       
+
+            // Get video element
+            var videoElement = document.getElementById('videoElement');
+            
+            // Try to access the user's camera
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function(stream) {
+                    // Attach the camera stream to the video element
+                    videoElement.srcObject = stream;
+                })
+                .catch(function(error) {
+                    console.error('Error accessing the camera:', error);
+                });
+       
+    
+    
+      }
+    
+
+      btn.addEventListener("click", QrCodeScanner);
+    </script> -->
+    <script src="js/qrscanner.js"></script>
+  </body>
+</html>
